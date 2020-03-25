@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "Backend da aplicação desenvolvida na Omnistack 10, feita pela Rocketseat.",
   "author": "leonardossev",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

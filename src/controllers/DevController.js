@@ -5,5 +5,11 @@ module.exports = {
     const devs = await DevService.findAll();
 
     return res.json(devs);
+  },
+
+  async store(req, res) {
+    const dev = await DevService.store(req.body);
+
+    return res.json(dev);
   }
 };

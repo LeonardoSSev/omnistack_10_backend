@@ -1,5 +1,6 @@
 const DevRepository = require('../repositories/DevRepository');
 const GithubService = require('./GithubService');
+const StringParser = require('../utils/StringParser');
 
 async function performDevStoring({ github_username, latitude, longitude, techs }) {
   const { name = login, bio, avatar_url } = await GithubService.findUser(github_username);
@@ -9,7 +10,9 @@ async function performDevStoring({ github_username, latitude, longitude, techs }
     coordinates: [longitude, latitude]
   };
 
-  return await DevRepository.store({ github_username, name, bio, avatar_url, location, techs });
+  const techsAsArray = StringParser.parseStringAsArray(techs);
+
+  return await DevRepository.store({ github_username, name, bio, avatar_url, location, techs: techsAsArray });
 };
 
 module.exports = {

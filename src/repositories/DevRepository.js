@@ -8,7 +8,7 @@ module.exports = {
   async findOneByGithubUsername(githubHusername) {
     return Dev.findOne({
       github_username: {
-        $eq: githubHusername
+        $eq: githubHusername.toLowerCase()
       }
     });
   },

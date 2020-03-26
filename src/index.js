@@ -3,6 +3,7 @@ const app = express();
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const connectionString = require('./config/databaseConfig').connectionString;
+const cors = require('cors');
 
 const port = process.env.APP_PORT | 3333;
 
@@ -12,6 +13,7 @@ mongoose.connect(connectionString, {
   useCreateIndex: true
 });
 
+app.use(cors);
 app.use(express.json());
 app.use(routes);
 

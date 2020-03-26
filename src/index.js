@@ -4,7 +4,7 @@ const routes = require('./routes');
 const mongoose = require('mongoose');
 const connectionString = require('./config/databaseConfig').connectionString;
 
-const port = process.env.APP_PORT | 3000;
+const port = process.env.APP_PORT | 3333;
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true,

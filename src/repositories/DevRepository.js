@@ -22,5 +22,22 @@ module.exports = {
       techs,
       location
     });
+  },
+
+  async findNearDevs({ meters = 10000, techs, longitude, latitude }) {
+    return await Dev.find({
+      techs: {
+        $in: techs
+      },
+      location: {
+        $near: {
+          $geometry: {
+            type: 'Point',
+            coordinates: [longitude, latitude]
+          },
+          $maxDistance: meters
+        }
+      }
+    });
   }
 };

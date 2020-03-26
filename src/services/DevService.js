@@ -10,7 +10,7 @@ async function performDevStoring({ github_username, latitude, longitude, techs }
     coordinates: [longitude, latitude]
   };
 
-  const techsAsArray = StringParser.parseStringAsArray(techs);
+  const techsAsArray = StringParser.parseLowerCaseStringAsArray(techs);
 
   return await DevRepository.store({ github_username, name, bio, avatar_url, location, techs: techsAsArray });
 };

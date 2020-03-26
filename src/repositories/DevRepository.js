@@ -15,12 +15,12 @@ module.exports = {
 
   async store({ github_username, name, bio, avatar_url, location, techs }) {
     return await Dev.create({
-      github_username,
       name,
       avatar_url,
       bio,
       techs,
-      location
+      location,
+      github_username: github_username.toLowerCase()
     });
   },
 

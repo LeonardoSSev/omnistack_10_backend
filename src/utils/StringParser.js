@@ -1,5 +1,5 @@
 module.exports = {
-  parseStringAsArray(stringToBeParsed) {
-    return stringToBeParsed.split(',').map(string => string.trim());
+  parseLowerCaseStringAsArray(stringToBeParsed) {
+    return stringToBeParsed.split(',').map(string => string.trim().toLowerCase());
   }
 }
